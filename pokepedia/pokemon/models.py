@@ -25,7 +25,7 @@ class Pokemon(models.Model):
         return self.Name
 
 class VariationTypes(models.Model):
-    Name = models.CharField(max_length=30)
+    Name = models.CharField(max_length=3)
 
     def __str__(self):
         return self.Name
