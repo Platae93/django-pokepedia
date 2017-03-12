@@ -20,6 +20,7 @@ class Pokemon(models.Model):
     CatchRate = models.PositiveIntegerField(validators=[validators.MaxValueValidator(255)])
     GenderCode = models.PositiveIntegerField(validators=[validators.MaxValueValidator(255)])
     BaseFriendship = models.PositiveIntegerField(validators=[validators.MaxValueValidator(255)])
+    Generation = models.ForeignKey(Generation, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.Name
@@ -61,6 +62,7 @@ class Variation(models.Model):
     Sprite = models.ImageField()
     VariationType = models.ForeignKey(VariationTypes, on_delete=models.CASCADE)
     Types = models.ManyToManyField(Type)
+    Abilities = models.ManyToManyField(Ability)
 
     def __str__(self):
         return self.Name
